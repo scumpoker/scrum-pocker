@@ -1,0 +1,26 @@
+// font-size, line-height, font-weight
+
+@mixin fontSize($fs, $lh: null, $fw: null) {
+    @if $fw and $lh {
+        font-size: $fs + px;
+        line-height: $lh + px;
+        font-weight: $fw;
+    } @else if $lh {
+        font-size: $fs + px;
+        line-height: $lh + px;
+    } @else {
+        font-size: $fs + px;
+    }
+}
+
+// width and height
+
+@mixin rectangle($width, $height: false) {
+    @if $height {
+        width: $width;
+        height: $height;
+    } @else {
+        width: $width;
+        height: $width;
+    }
+}

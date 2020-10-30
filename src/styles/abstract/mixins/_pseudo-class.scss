@@ -1,0 +1,19 @@
+// placeholder
+
+@mixin placeholder {
+    &[placeholder] {
+        @content;
+    }
+}
+
+@mixin firstChild {
+    &:first-child {
+        @content;
+    }
+}
+
+@mixin lastChild {
+    &:last-child {
+        @content;
+    }
+}

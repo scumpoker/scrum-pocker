@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+// abstract files - mixins, variables, functions, helpers
+@import "./styles/abstract/index.abstract";
+
+// core files - reset css, normalize, config, fonts
+@import "./styles/core/index.core";
+
+// constructor files - atomic classes
+@import "./styles/constructor/index.constructor";
+
+// ui components - buttons, typography, elements of form, grid
+@import "./styles/ui/index.ui";
+
+// vendors files - third party library styles
+@import "./styles/vendors/index.vendors";
