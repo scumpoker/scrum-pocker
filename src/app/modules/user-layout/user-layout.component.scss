@@ -1,0 +1,29 @@
+@import "/src/styles/abstract/mixins/sizes";
+@import "/src/styles/abstract/mixins/flex";
+
+:host {
+    @include rectangle(100%);
+    @include layout;
+    position: absolute;
+    .layout {
+        &-container {
+            height: 100%;
+            @include flex(0,0,column);
+        }
+        &-content {
+            @include flex(center);
+            flex-grow: 1;
+        }
+    }
+
+    .header {
+        &__container {
+            @include flex(center);
+            padding:  16px 0;
+            border-bottom: 1px solid #242424;
+        }
+        &__logo {
+            @include rectangle(32px);
+        }
+    }
+}

@@ -1,0 +1,119 @@
+@import '/src/styles/abstract/mixins/media';
+
+// Количество колонок
+$columns: 12;
+/*$columns-portrait: 8;*/
+$columns-mobile: 4;
+
+// Ширина контейнера
+$width-xl-container: 1552px;
+$width-lg-container: 1168px;
+$width-md-container: 968px;
+$width-sm-container: 696px;
+
+// Гаттеры колонок
+$gap: 24px;
+$gap-portrait: 24px;
+$gap-mobile: 20px;
+
+@mixin grid-media($point) {
+  @media (min-width: $point) {
+    @content;
+  }
+}
+
+// Генерация дефолтных размеров колонки на всю ширину
+@mixin make-default-columns($breakpoints) {
+  @each $point-name, $point in $breakpoints {
+    @if $point-name == xs {
+      [class*='ui-col-'] {
+        grid-column: span $columns-mobile;
+      }
+    } @else if $point-name == sm {
+      @include grid-media($point) {
+        [class*='ui-col-'] {
+          grid-column: span $columns;
+        }
+      }
+    }
+  }
+}
+
+// Генерация колонок
+@mixin make-columns($breakpoints) {
+  @each $point-name, $point in $breakpoints {
+    @if $point-name == xs {
+      @for $i from 1 through $columns-mobile {
+        .ui-col-#{$point-name}-#{$i} {
+          grid-column: span #{$i};
+        }
+      }
+    } @else {
+      @include grid-media($point) {
+        @for $i from 1 through $columns {
+          .ui-col-#{$point-name}-#{$i} {
+            grid-column: span #{$i};
+          }
+        }
+      }
+    }
+  }
+}
+
+// Генерация гаттеров
+@mixin make-gap($breakpoints) {
+  @each $point-name, $point in $breakpoints {
+    @if $point-name == xs {
+      grid-gap: $gap-mobile;
+    } @else if $point-name == sm {
+      @include grid-media($point) {
+        grid-gap: $gap-portrait;
+      }
+    } @else if $point-name == md {
+      @include grid-media($point) {
+        grid-gap: $gap;
+      }
+    }
+  }
+}
+
+// Генерация контейнера
+@mixin make-container($breakpoints) {
+  @each $point-name, $point in $breakpoints {
+    @if $point-name == xs {
+      @include mediaQuery(sm-max) {
+        padding-left: rhythm(5);
+        padding-right: rhythm(5);
+      }
+    } @else if $point-name == sm {
+      @include grid-media($point) {
+        max-width: $width-sm-container;
+      }
+    } @else if $point-name == md {
+      @include grid-media($point) {
+        max-width: $width-md-container;
+      }
+    } @else if $point-name == lg {
+      @include grid-media($point) {
+        max-width: $width-lg-container;
+      }
+    } @else if $point-name == xl {
+      @include grid-media($point) {
+        max-width: $width-xl-container;
+      }
+    }
+  }
+}
+
+// Генерация грид контейнера
+@mixin make-grid-container($breakpoints) {
+  @each $point-name, $point in $breakpoints {
+    @if $point-name == xs {
+      grid-template-columns: repeat($columns-mobile, 1fr);
+    } @else if $point-name == sm {
+      @include grid-media($point) {
+        grid-template-columns: repeat($columns, 1fr);
+      }
+    }
+  }
+}

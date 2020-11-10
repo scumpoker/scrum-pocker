@@ -1,12 +1,17 @@
 <div>
-  <h1>Scrum планирование онлайн</h1>
-  <h3>Эффективная оценка задач</h3>
-  <div class="toggle">
-    <button routerLink="create">Создать комнату</button>
-    <button routerLink="enter">Войти в комнату</button>
+  <h1 class="main__title">Scrum планирование онлайн</h1>
+  <h2 class="main__subtitle">Эффективная оценка задач</h2>
+  <div class="tab tab-container">
+    <button class="tab__item active" routerLink="create">Создать комнату</button>
+    <button class="tab__item" routerLink="enter">Войти в комнату</button>
   </div>
   <div class="form">
     <router-outlet></router-outlet>
   </div>
-  <div class="history"></div>
+  <div class="history history-container">
+    <div class="history__info">?</div>
+    <div class="history__chip">Backend</div>
+    <div class="history__chip">Frontend</div>
+    <div class="history__chip">Design</div>
+  </div>
 </div>
