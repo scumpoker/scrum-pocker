@@ -1,0 +1,32 @@
+@import '/src/styles/abstract/mixins/grid';
+@import '/src/styles/abstract/variables/breakpoints';
+
+// Генерация дефолтных колонок
+@include make-default-columns($breakpoints);
+
+// Генерация колонок
+@include make-columns($breakpoints);
+
+.ui {
+  &-grid {
+    &-container {
+      display: grid;
+      @include make-grid-container($breakpoints);
+    }
+
+    &-gap {
+      @include make-gap($breakpoints);
+    }
+  }
+  &-container {
+    width: 100%;
+    @include make-container($breakpoints);
+    margin-left: auto;
+    margin-right: auto;
+
+    &-fluid {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}

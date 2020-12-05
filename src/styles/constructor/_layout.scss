@@ -1,0 +1,4 @@
+@import '/src/styles/abstract/mixins/sizes';
+.layout {
+  @include layout;
+}

@@ -1,0 +1,72 @@
+@import "/src/styles/abstract/mixins/sizes";
+@import "/src/styles/abstract/mixins/flex";
+
+:host {
+
+  h1, h2 {
+    color: #fff;
+  }
+
+  .main {
+    &__title {
+      @include fontSize(32, 40, 700);
+      margin-bottom: 8px;
+    }
+    &__subtitle {
+      @include fontSize(20, 28, 500);
+      opacity: .7;
+      margin-bottom: 32px;
+    }
+  }
+
+  .tab {
+    &-container {
+      display: flex;
+    }
+    &__item {
+      @include fontSize(14, 24);
+      color: #fff;
+      margin-right: 16px;
+      opacity: .6;
+      letter-spacing: .4px;
+
+      &.active {
+        opacity: 1;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  .history {
+    &-container {
+      @include flex(center);
+    }
+    &__info {
+      @include rectangle(20px);
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.8);
+      margin-right: 12px;
+    }
+    &__chip {
+      height: 24px;
+      border-radius: 24px;
+      margin-right: 8px;
+      padding: 0 12px;
+      letter-spacing: .4px;
+      transition: .2s ease-in-out;
+      &:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 1);
+      }
+    }
+    &__chip,
+    &__info {
+      @include fontSize(12, 16, 500);
+      @include iflex(center, center);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+    }
+  }
+}

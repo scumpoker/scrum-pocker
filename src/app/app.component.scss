@@ -1,0 +1,10 @@
+@import "/src/styles/abstract/mixins/sizes";
+@import "/src/styles/abstract/mixins/flex";
+:host {
+    @include rectangle(100%);
+    @include layout;
+    position: absolute;
+    background: linear-gradient(180deg, var(--bg-gradient-item-up) 0%, var(--bg-gradient-item-down) 100%);
+
+    
+}
