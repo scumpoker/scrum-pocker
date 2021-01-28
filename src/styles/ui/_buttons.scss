@@ -1,0 +1,45 @@
+@import "src/styles/abstract/mixins/flex";
+@import "src/styles/abstract/mixins/sizes";
+
+.button {
+  &-default {
+    @include iflex(center);
+  }
+  &-square {
+    @include iflex(center, center);
+  }
+
+  &-main {
+    &-1 {
+      @include fontSize(16, 24);
+      height: 48px;
+      padding: 0 20px;
+      background-color: #222222;
+      color: #ffffff;
+      border-radius: 8px;
+      transition: .2 ease-in-out;
+      &:hover {
+        background-color: #313131;
+      }
+      &:active {
+        transform: scale(.99);
+      }
+    }
+  }
+
+  &-square {
+    &-1 {
+      @include rectangle(48px);
+      background-color: #222222;
+      color: #ffffff;
+      border-radius: 8px;
+      transition: .2 ease-in-out;
+      &:hover {
+        background-color: #313131;
+      }
+      &:active {
+        transform: scale(.99);
+      }
+    }
+  }
+}
