@@ -1,0 +1,137 @@
+@import "src/styles/abstract/mixins/flex";
+@import "src/styles/abstract/mixins/sizes";
+
+:host {
+  display: block;
+  width: 100%;
+  align-self: flex-start;
+  padding: 40px 0;
+
+  .room {
+    &-container {
+      grid-template-rows: min-content auto 1fr;
+      grid-row-gap: 64px;
+    }
+  }
+
+  .point {
+    margin-bottom: 32px;
+    &-container {
+
+    }
+    &-wrapper {
+      &:not(:last-child) {
+        margin-right: 12px;
+      }
+    }
+    &__item {
+      @include iflex(center);
+      background-color: rgba(255, 255, 255, .1);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 0 16px;
+      height: 40px;
+      transition: .2s ease-in-out;
+      &:hover {
+      background-color: rgba(255, 255, 255, .2);
+      }
+    }
+    &__title {
+      margin-bottom: 16px;
+    }
+  }
+
+
+  .users {
+    grid-row: 2/4;
+    &-container {
+
+    }
+    &-wrapper {
+
+    }
+    &__item {
+      @include flex(center);
+      background-color: rgba(255, 255, 255, .05);
+      border-radius: 8px;
+      height: 48px;
+      padding: 0 20px;
+      user-select: none;
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+
+      &.success {
+        background-color: #1a924a;
+      }
+      &.danger {
+        background-color: #a92424;
+      }
+      &.warning {
+
+      }
+    }
+    &__name {
+      flex-grow: 1;
+    }
+    &__result {
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    &__title {
+      margin-bottom: 16px;
+    }
+  }
+
+  .action {
+    grid-column: 6/10;
+    grid-row: 2/3;
+
+    &__title {
+      margin-bottom: 16px;
+    }
+    &__button {
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .result {
+    grid-column: 6/10;
+    grid-row: 3/4;
+
+    &-container {
+
+    }
+    &-wrapper {
+      @include flex;
+      @include fontSize(16, 20);
+      margin-bottom: 16px;
+    }
+
+    &__title {
+      margin-bottom: 16px;
+    }
+    &__label {
+      white-space: nowrap;
+      flex-shrink: 0;
+      color: rgba(255, 255, 255, .7);
+    }
+    &__decor {
+      &-dotted {
+        border-bottom: 1px dotted rgba(255, 255, 255, .4);
+        flex-grow: 1;
+        margin: 0 8px;
+        transform: translateY(-5px);
+      }
+    }
+    &__consensus {
+      @include fontSize(18, 24, 700);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 24px;
+      color: #1dc560;
+    }
+  }
+}
